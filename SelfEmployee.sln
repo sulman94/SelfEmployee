@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfEmployee", "SelfEmployee\SelfEmployee.csproj", "{C242D05A-F23A-40F8-9961-DBE5EF175D85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelfEmployee", "SelfEmployee\SelfEmployee.csproj", "{C242D05A-F23A-40F8-9961-DBE5EF175D85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfEmployee.DBHandler", "SelfEmployee.DBHandler\SelfEmployee.DBHandler.csproj", "{A6BB36EB-9F9D-4811-8C58-E620F7C4CF27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelfEmployee.DBHandler", "SelfEmployee.DBHandler\SelfEmployee.DBHandler.csproj", "{A6BB36EB-9F9D-4811-8C58-E620F7C4CF27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfEmployee.Models", "SelfEmployee.Models\SelfEmployee.Models.csproj", "{B4AF4DEB-CE0B-472F-9CB8-8E7843D94AFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelfEmployee.Models", "SelfEmployee.Models\SelfEmployee.Models.csproj", "{B4AF4DEB-CE0B-472F-9CB8-8E7843D94AFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "PostTask";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+		<div class="row">
+			<div class="post-task-title">
+				<h1>Post a task</h1>
+			</div>
+			<div class="post-taskbx01">
+				<div class="form-spacebx1">
+					<h2>Let's start with the basics</h2>
+					<p>In a few words, what do you need done?</p>
+					<form>
+						<div class="form-group required-fieldbx">
+							<input type="text" class="form-control form-control-lg" placeholder="e.g Help move my home furnititure" >
+						</div>
+						<p>In a few words, what do you need done?</p>
+						<div class="form-inputrow">
+							<div class="form-group formspace01">
+								<select class="form-select">
+								  <option>Date</option>
+								  <option>Option 1</option>
+								  <option>Option 2</option>
+								  <option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group formspace01">
+								<div class="form-group">
+									<select class="form-select">
+									  <option>Before Date</option>
+									  <option>Option 1</option>
+									  <option>Option 2</option>
+									  <option>Option 3</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group formspace01">
+								<input type="text" class="form-control form-control-lg" placeholder="I’m flexible" >
+							</div>
+						</div>
+						<p>Category</p>
+						<div class="form-group required-fieldbx">
+							<div class="form-group">
+								<select class="form-select">
+								    <option>Data & IT</option>
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+						</div>
+						<p>When do you need this done?</p>
+						<div class="form-group required-fieldbx">
+							<div class="address-bx11">
+								<div class="address-iconbx"><img src="images/map-icon.png"></div>
+								<input type="text" class="form-control form-control-lg" placeholder="Sydney NSW, Australia" >
+							</div>
+						</div>
+						<p>Provide more details</p>
+						<div class="form-group required-fieldbx">
+						   <textarea class="form-control" rows="5" id="comment" placeholder="What are the details?"></textarea>
+						</div>
+						<p>Add Images</p>
+						<div class="form-group">
+							<div class="form-inputrow2">
+								<div class="image-uploadfile">
+									<label for="first-img1"><i class="fa fa-plus" aria-hidden="true"></i></label>
+									<input type="file" name="" id="first-img1" style="display: none;visibility: none;">
+								</div>
+								<div class="image-uploadfile">
+									<label for="first-img2"><i class="fa fa-plus" aria-hidden="true"></i></label>
+									<input type="file" name="" id="first-img2" style="display: none;visibility: none;">
+								</div>
+								<div class="image-uploadfile">
+									<label for="first-img3"><i class="fa fa-plus" aria-hidden="true"></i></label>
+									<input type="file" name="" id="first-img3" style="display: none;visibility: none;">
+								</div>
+							</div>
+						</div>
+						<p>When do you need this done?</p>
+						<div class="form-group required-fieldbx">
+							<div class="address-bx11">
+								<div class="address-iconbx">$</div>
+								<input type="text" class="form-control form-control-lg"  >
+							</div>
+						</div>
+						<div class="submit-btnbx0">
+							 <button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
