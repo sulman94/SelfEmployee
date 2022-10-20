@@ -1,97 +1,165 @@
-﻿@{
+﻿@model SelfEmployee.Models.ViewModels.CreateTasksDto
+@{
     ViewData["Title"] = "PostTask";
    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="container">
-		<div class="row">
-			<div class="post-task-title">
-				<h1>Post a task</h1>
-			</div>
-			<div class="post-taskbx01">
-				<div class="form-spacebx1">
-					<h2>Let's start with the basics</h2>
-					<p>In a few words, what do you need done?</p>
-					<form>
-						<div class="form-group required-fieldbx">
-							<input type="text" class="form-control form-control-lg" placeholder="e.g Help move my home furnititure" >
-						</div>
+@using (Html.BeginForm(FormMethod.Post, new { enctype = "multipart/form-data", id = "CreateTaskForm" }))
+{
+    @Html.AntiForgeryToken()
+	<div class="container">
+			<div class="row">
+				<div class="post-task-title">
+					<h1>Post a task</h1>
+				</div>
+				<div class="post-taskbx01">
+					<div class="form-spacebx1">
+						<h2>Let's start with the basics</h2>
 						<p>In a few words, what do you need done?</p>
-						<div class="form-inputrow">
-							<div class="form-group formspace01">
-								<select class="form-select">
-								  <option>Date</option>
-								  <option>Option 1</option>
-								  <option>Option 2</option>
-								  <option>Option 3</option>
-								</select>
+						<form>
+							<div class="form-group required-fieldbx">
+								@Html.EditorFor(model => model.TaskName, new
+               {
+                   htmlAttributes =
+                    new { @class = "form-control form-control-lg", required = "required", maxlength = 150, minlength = 20, placeholder="e.g Help move my home furnititure" }
+               })
+
+								@*<input type="text" class="form-control form-control-lg" placeholder="e.g Help move my home furnititure" >*@
 							</div>
-							<div class="form-group formspace01">
-								<div class="form-group">
+							<p>In a few words, what do you need done?</p>
+							<div class="form-inputrow">
+								<div class="form-group formspace01">
+								@Html.EditorFor(model => model.StartDate, new
+               {
+                   htmlAttributes =
+                    new { @class = "form-control", type="date", placeholder="Date" }
+               })
+			   </div>
+								@*<div class="form-group formspace01">
 									<select class="form-select">
-									  <option>Before Date</option>
+									  <option>Date</option>
 									  <option>Option 1</option>
 									  <option>Option 2</option>
 									  <option>Option 3</option>
 									</select>
+								</div>*@
+								<div class="form-group formspace01">
+									<div class="form-group">
+										@Html.EditorFor(model => model.EndDate, new
+               {
+                   htmlAttributes =
+                    new { @class = "form-control", type="date", placeholder="Date" }
+               })
+										@*<select class="form-select">
+										  <option>Before Date</option>
+										  <option>Option 1</option>
+										  <option>Option 2</option>
+										  <option>Option 3</option>
+										</select>*@
+									</div>
+								</div>
+								<div class="form-group formspace01">
+									@*<input type="text" class="form-control form-control-lg" placeholder="I’m flexible" >*@
+									
+									
+									 <span class="input-group-text " id="inputGroup-sizing-sm">
+										 @Html.CheckBoxFor(model => model.IsFlexible, new
+               {
+                   htmlAttributes =
+                    new { @class = "form-control", required = "required", type="checkbox" }
+               }) &nbsp;&nbsp; I’m flexible</span> 
 								</div>
 							</div>
-							<div class="form-group formspace01">
-								<input type="text" class="form-control form-control-lg" placeholder="I’m flexible" >
+							<p>Category</p>
+							<div class="form-group required-fieldbx">
+								<div class="form-group">
+									@Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)ViewBag.Categories, "--- Select Category ---", new { @class = "form-select", required = "required" })
+									@*<select class="form-select">
+										<option>Data & IT</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>*@
+								</div>
 							</div>
-						</div>
-						<p>Category</p>
-						<div class="form-group required-fieldbx">
+							<p>When do you need this done?</p>
+							<div class="form-group required-fieldbx">
+								<div class="address-bx11">
+									<div class="address-iconbx"><img src="~/images/map-icon.png"></div>
+									@*<input type="text" class="form-control form-control-lg" placeholder="Sydney NSW, Australia" >*@
+									@Html.EditorFor(model => model.LocationName, new
+               {
+                   htmlAttributes =
+                    new { @class = "form-control form-control-lg", required = "required", maxlength = 100,  placeholder="Sydney NSW, Australia" }
+               })
+								</div>
+							</div>
+							<p>Provide more details</p>
+							<div class="form-group required-fieldbx">
+								@Html.TextAreaFor(model => model.Details, new
+               {
+                   htmlAttributes =
+                    new { @class = "form-control", required = "required", placeholder="What are the details?", rows="5" }
+               })
+							   @*<textarea class="form-control" rows="5" id="comment" placeholder="What are the details?"></textarea>*@
+							</div>
+							<p>Add Images</p>
 							<div class="form-group">
-								<select class="form-select">
-								    <option>Data & IT</option>
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-						</div>
-						<p>When do you need this done?</p>
-						<div class="form-group required-fieldbx">
-							<div class="address-bx11">
-								<div class="address-iconbx"><img src="images/map-icon.png"></div>
-								<input type="text" class="form-control form-control-lg" placeholder="Sydney NSW, Australia" >
-							</div>
-						</div>
-						<p>Provide more details</p>
-						<div class="form-group required-fieldbx">
-						   <textarea class="form-control" rows="5" id="comment" placeholder="What are the details?"></textarea>
-						</div>
-						<p>Add Images</p>
-						<div class="form-group">
-							<div class="form-inputrow2">
-								<div class="image-uploadfile">
-									<label for="first-img1"><i class="fa fa-plus" aria-hidden="true"></i></label>
-									<input type="file" name="" id="first-img1" style="display: none;visibility: none;">
-								</div>
-								<div class="image-uploadfile">
-									<label for="first-img2"><i class="fa fa-plus" aria-hidden="true"></i></label>
-									<input type="file" name="" id="first-img2" style="display: none;visibility: none;">
-								</div>
-								<div class="image-uploadfile">
-									<label for="first-img3"><i class="fa fa-plus" aria-hidden="true"></i></label>
-									<input type="file" name="" id="first-img3" style="display: none;visibility: none;">
+								<div class="form-inputrow2">
+									<div class="image-uploadfile">
+										<label for="first-img1"><i class="fa fa-plus" aria-hidden="true"></i></label>
+										<input type="file" name="" id="first-img1" style="display: none;visibility: none;">
+									</div>
+									<div class="image-uploadfile">
+										<label for="first-img2"><i class="fa fa-plus" aria-hidden="true"></i></label>
+										<input type="file" name="" id="first-img2" style="display: none;visibility: none;">
+									</div>
+									<div class="image-uploadfile">
+										<label for="first-img3"><i class="fa fa-plus" aria-hidden="true"></i></label>
+										<input type="file" name="" id="first-img3" style="display: none;visibility: none;">
+									</div>
 								</div>
 							</div>
-						</div>
-						<p>When do you need this done?</p>
-						<div class="form-group required-fieldbx">
-							<div class="address-bx11">
-								<div class="address-iconbx">$</div>
-								<input type="text" class="form-control form-control-lg"  >
+							<p>When do you need this done?</p>
+							<div class="form-group required-fieldbx">
+								<div class="address-bx11">
+									<div class="address-iconbx">$</div>
+									@*<input type="text" class="form-control form-control-lg"  >*@
+									@Html.EditorFor(model => model.Amount, new
+               {
+                   htmlAttributes =
+                    new { @class = "form-control form-control-lg", placeholder="0.0" }
+               })
+								</div>
 							</div>
-						</div>
-						<div class="submit-btnbx0">
-							 <button type="submit" class="btn btn-primary">Submit</button>
-						</div>
-					</form>
+							<div class="submit-btnbx0">
+								 @*<button type="submit" class="btn btn-primary">Submit</button>*@
+								 <button type="button" class="btn btn-primary" onclick="CreateTaskForm()">Submit</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+}
+<script>
+function CreateTaskForm() {
+    //let text = $('#ContactNumber').val();
+    //let pattern = /^0[0-9]/;
+    //let result = text.match(pattern);
 
+    //if (result != null && ('#TermsAgreement').prop("checked")) {
+    //    if (!ValidateDateOfBirth(val)) {
+    //        $('#DateOfBirthVal').text("Please select age above 18 Years");
+    //        $('#DateOfBirthVal').show();
+    //    } else {
+           
+    //    }
+    //}
+    //else {
+    //    alert('Please read and agree terms and conditions!');
+    //}
+
+
+	 $('#CreateTaskForm').submit();
+}
+</script>

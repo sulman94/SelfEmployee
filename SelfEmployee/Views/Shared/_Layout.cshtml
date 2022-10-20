@@ -12,7 +12,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SelfEmployee.styles.css" asp-append-version="true" />*@
@@ -22,10 +22,10 @@
 	<div class="header-bx01">
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-3">
-					<div class="logo"><img src="images/logo2.png"></div>
+				<div class="col-xl-3 col-lg-3 col-md-5 col-sm-8 logo-colbx1">
+					<div class="logo"><a href="index.html"><img src="~/images/logo.svg"></a></div>
 				</div>
-				<div class="col-xl-6">
+				<div class="col-xl-6 col-lg-6 col-md-7 col-sm-4 navigation-col-bx01">
 					<div class="navigation-bx01 navigation-bx02">
 						<nav class="navbar navbar-expand-lg navbar-light">
 						  <div class="container-fluid">
@@ -34,8 +34,18 @@
 						    </button>
 						    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						        <li class="nav-item">
-						          <a class="nav-link active" aria-current="page" href="#">Categories</a>
+						        <li class="nav-item dropdown">
+						          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Categories</a>
+						          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						            <li><a class="dropdown-item" href="#">Data & IT</a></li>
+						            <li><a class="dropdown-item" href="#">Bygga & Renovera</a></li>
+						            <li><a class="dropdown-item" href="#">Flytt & Transport</a></li>
+						            <li><a class="dropdown-item" href="#">Mark & Tomt</a></li>
+						            <li><a class="dropdown-item" href="#">Städning</a></li>
+						            <li><a class="dropdown-item" href="#">Foto & Bild</a></li>
+						            <li><a class="dropdown-item" href="#">Marknadsföring</a></li>
+						            <li><a class="dropdown-item" href="#">Övrigt</a></li>
+						          </ul>
 						        </li>
 						        <li class="nav-item">
 						          <a class="nav-link" href="#">How Its Works</a>
@@ -49,12 +59,26 @@
 						</nav>
 					</div>
 				</div>
-				<div class="col-xl-3 mid-align-col-bx">
-					<div class="btn-bx01">
-						<ul>
-							<li class="orang-btnbx"><a href="#"><em>+</em> Find Job</a></li>
-							<li class="white-btnbx"><a href="#">Login</a></li>
-						</ul>
+				<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mid-align-col-bx">
+					<div class="my-account-bx01">
+						<div class="dropdown">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						  	<div class="profile-bx1">
+						  		<div class="profile-img"><img src="~/images/profile-img.png"></div>
+						  		<div class="profile-detail">
+						  			<h5>Samantha William</h5>
+						  			<p>Designer</p>
+						  		</div>
+						  	</div>
+						  </button>
+						  <ul class="dropdown-menu user-dropdownbx" aria-labelledby="dropdownMenuButton1">
+						    <li><a class="dropdown-item" href="#">View Profile </a></li>
+						    <li><a class="dropdown-item" href="#">Settings</a></li>
+						    <li><a class="dropdown-item" href="#">Earnings</a></li>
+						    <li><a class="dropdown-item" href="#">Support</a></li>
+						    <li><a class="dropdown-item" href="#">Logout</a></li>
+						  </ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -64,8 +88,8 @@
     <div class="main-content-bx01 bg-colorbx">
 		@RenderBody()
     </div>
-	<footer>
-	<div class="footer-bx01 footer-bx02">
+<footer>
+	<div class="footer-bx01">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-12">
@@ -82,8 +106,11 @@
 		</div>
 	</div>
 </footer>
-<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+@*<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>*@
 
     @*<footer class="border-top footer text-muted">
         <div class="container">
