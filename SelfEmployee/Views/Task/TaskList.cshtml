@@ -1,0 +1,158 @@
+﻿@using SelfEmployee.Models.ConfigurationRepositories
+@using SelfEmployee.Models.ViewModels
+@model SelfEmployee.Models.ViewModels.TaskListView
+@{
+    ViewData["Title"] = "PostTask";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm(FormMethod.Post, new { enctype = "multipart/form-data", id = "CreateTaskForm" }))
+{
+    @Html.AntiForgeryToken()
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="form-serch-bx">
+					<h2>Browser</h2>
+					<div class="input-group mb-3">
+						<div class="search-bx1">
+						  <i class="fa fa-search" aria-hidden="true"></i> <input type="text" class="form-control form-control-lg" placeholder="Search for Project">
+						</div>
+					  <button type="submit" class="input-group-text btn-success">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="top-result-bx">
+				<div class="result-leftbx1">
+					<ul>
+						<li><b>Top result</b></li>
+						<li><a href="#">1 - 20 of 4k results</a></li>
+						<li><i class="fa fa-bell" aria-hidden="true"></i> Receive alerts for this search</li>
+						<li>
+							<div class="form-check form-switch">
+							  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="result-rightbx1">
+					<p>Sort by</p>
+					<div class="dropdown">
+						<select class="form-select" aria-label="Latest">
+							  <option selected>Latest</option>
+							  <option value="1">Latest Option 1</option>
+							  <option value="2">Latest Option 2</option>
+							  <option value="3">Latest Option 3</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-3">
+				<div class="filter-bx01">
+					<h3>Filter</h3>
+					<h4>Categories</h4>
+					@foreach (TaskCategory item in ViewBag.Categories )
+					{
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="@item.Id" id="flexCheck1" >
+							@*<input value="@item.Id">*@
+							<label class="form-check-label" for="flexCheckDefault">@item.CategoryName</label>
+						</div>
+					}
+				</div>
+			</div>
+			<div class="col-xl-9">
+				<div class="job-post-mainbx1">
+					@foreach (Tasks item in Model.TaskLists)
+					{
+						<div class="filter-result-bx01 filter-result-bx02">
+						<div class="filter-resultsbx1 filter-resultsbx02">
+							<div class="job-img"><img src="~/images/img111.png">
+							   <a href="#" class="close-btn1">@item.TaskStatus</a>
+						    </div>
+							<div class="job-description">
+								<div class="hours-bx1">
+									<h3>@item.TaskName</h3>
+									<ul>
+										<li><a href="#"><i class="fa fa-shield" aria-hidden="true"></i> Pembayanran</a></li>
+										<li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 10 min yang lalu</a></li>
+										<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> @item.LocationName</a></li>
+										<li><a href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i> @item.EndDate</a></li>
+									</ul>
+									<p>@item.Details</p>
+									<div class="job-bottomrowbx">
+										<div class="info-detail-menubx1">
+											<ul class="center slider">
+												<li><a href="#">design</a></li>
+												<li><a href="#">frontend developer</a></li>
+												<li><a href="#">magang</a></li>
+												<li><a href="#">magang</a></li>
+											</ul>
+										</div>
+										<div class="price-btn01">
+											<a href="#">@item.Currency @item.Amount<em>Per<br> Hour</em></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="job-rp-bx02">
+								<img src="~/images/defult-img.png">
+								<div class="image-numberbx">+6</div>
+							</div>
+						</div>
+					</div>
+					}					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="pagination-bx1">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination">
+					    <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i>
+</a></li>
+					    <li class="page-item"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item">...</li>
+					    <li class="page-item"><a class="page-link" href="#">10</a></li>
+					    <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>
+</a></li>
+					  </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+}
+<script>
+
+	//$("IsFlexible").
+	//$('#TermsAgreement').prop("checked")
+
+function CreateTaskForm() {
+    //let text = $('#ContactNumber').val();
+    //let pattern = /^0[0-9]/;
+    //let result = text.match(pattern);
+
+    //if (result != null && ('#TermsAgreement').prop("checked")) {
+    //    if (!ValidateDateOfBirth(val)) {
+    //        $('#DateOfBirthVal').text("Please select age above 18 Years");
+    //        $('#DateOfBirthVal').show();
+    //    } else {
+           
+    //    }
+    //}
+    //else {
+    //    alert('Please read and agree terms and conditions!');
+    //}
+
+
+	 $('#CreateTaskForm').submit();
+}
+</script>

@@ -1,0 +1,29 @@
+
+Login Hosting
+https://www.controlpanellive.net/
+https://www.webwiz.net/
+labssol
+Labssol321@@@
+
+
+
+FTP:
+8120_sulman
+SelfEmployee@123
+
+Scaffold-DbContext "Data Source=mssql2.websitelive.net;Initial Catalog=8120_SelfEmployeeDB;Persist Security Info=True;User ID=8120_SelfEmployeeApp;Password=SelfEmployee@123;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir ConfigurationRepositories -Tables TaskCategories,Tasks,TaskImages
+
+
+*Project Deployed*
+http://selfemployee.labssol.com.temporary-domain.com/Task/PostTask
+
+*Tasks Done*
+Database structure done for this screen
+DropDown Dynamic From Database (Values can be changed)
+Project Task Screen Deployed with Design changes
+
+
+*TODO*
+Location Search with GeoLocation
+Image Uploads
+Save Task
